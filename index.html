@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1732">
+  <meta name="description" content="TEDKOD yapay zekâ turnuvası öğrenci ön seçme ve yetenek keşif başvurusu.">
+  <title>TEDKOD | Öğrenci Seçmeleri</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script src="./config.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="./assets/shared.js" defer></script>
+  <script src="./assets/app.js" defer></script>
+</head>
+<body>
+  <div class="top-accent"></div>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="TEDKOD ana sayfa"><span class="brand-mark">TK<span class="mark-dot">●</span></span><span><strong>TEDKOD</strong><small>Yapay Zekâ &amp; Proje Takımı</small></span></a>
+    <a class="header-link" href="#surec">Seçme süreci <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="red-dot"></span> TED TRABZON KOLEJİ <span class="divider">/</span> 2026–2027</div>
+        <h1 id="hero-title">Bir fikir,<br><span>geleceği değiştirebilir.</span></h1>
+        <p class="lead">Okuldan Öğrendim Yapay Zekâ Turnuvası için <strong>TEDKOD öğrenci seçmeleri</strong> başladı. Merak ediyorsan, sorguluyorsan ve birlikte üretmek istiyorsan bu çağrı sana.</p>
+        <div class="hero-actions"><a class="button primary" href="#basvuru">Başvurunu başlat <span aria-hidden="true">↗</span></a><span class="mini-note">5, 6, 7 ve 8. sınıflar · Ücretsiz</span></div>
+        <div class="hero-statline"><div><strong>10–15 dk</strong><small>Kısa ön değerlendirme</small></div><div><strong>8 soru</strong><small>6 test + 2 düşünme sorusu</small></div><div><strong>Kodlama şart değil</strong><small>Fikrini merak ediyoruz</small></div></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="grid-pattern"></div><div class="glow-blob"></div>
+        <div class="art-card card-top"><span>01</span><b>PROBLEMİ KEŞFET</b><i>↗</i></div>
+        <div class="ai-core"><div class="ring ring-one"></div><div class="ring ring-two"></div><div class="core-label">AI<span class="spark">✦</span></div></div>
+        <div class="art-card card-bottom"><span>02</span><b>FİKRİNİ GELİŞTİR</b><i>↗</i></div>
+        <div class="art-caption">THINK <strong>BEYOND</strong> THE CODE.</div>
+      </div>
+    </section>
+    <section class="deadline-band"><div class="wrap band-inside"><div class="band-label"><span class="calendar-icon">▦</span><div><small>ÖĞRENCİ ÖN SEÇMESİ</small><strong id="deadline-label">Son başvuru: 27 Kasım Cuma</strong></div></div><div class="countdown"><span id="countdown">Başvuru tarihi yükleniyor...</span><small>Türkiye saati · 23.59</small></div></div></section>
+    <section id="surec" class="process wrap"><div class="section-heading"><span class="section-kicker">NASIL İLERLİYOR?</span><h2>Üç küçük adım.<br><span>Büyük bir başlangıç.</span></h2><p>Burada doğru cevaptan çok, nasıl düşündüğünü görmek istiyoruz. Ön test sadece seçim sürecinin bir parçasıdır.</p></div><div class="process-grid"><article class="process-card"><span class="process-num">01</span><div class="process-icon">◎</div><h3>Kendini tanıt</h3><p>Adını, sınıfını ve ilgilendiğin proje alanını seç.</p></article><article class="process-card"><span class="process-num">02</span><div class="process-icon">◇</div><h3>Mini testi çöz</h3><p>Gözlem, yapay zekâ, güvenlik ve takım çalışması üzerine 6 soru.</p></article><article class="process-card"><span class="process-num">03</span><div class="process-icon">✧</div><h3>Fikrini paylaş</h3><p>İki kısa soruda kendi çözümünü anlat. Öğretmenin değerlendirsin.</p></article></div></section>
+    <section id="basvuru" class="application-section"><div class="wrap apply-layout"><aside class="apply-aside"><div class="side-badge">ÖĞRENCİ BAŞVURUSU</div><h2>Takımda yerin<br><span>olabilir.</span></h2><p>Bu bir bilgi ezberi sınavı değil. Gözlem yapmana, fikir üretmene ve düşünceni açıklamana odaklanan kısa bir ön değerlendirme.</p><div class="side-rule"></div><div class="side-list"><div><span>01</span> Kendini tanıt</div><div><span>02</span> Durumları değerlendir</div><div><span>03</span> Kendi çözümünü öner</div></div><div class="aside-foot">Önemli: Bu form <strong>okul içi öğrenci ön seçmesi</strong> içindir. MEB'nin resmî turnuva başvurusu değildir.</div></aside>
+      <div class="form-shell" id="form-shell">
+        <div class="form-top"><div><span class="form-overline">TEDKOD / BAŞVURU SİSTEMİ</span><h3 id="form-title">Hazır mısın?</h3></div><span id="step-indicator" class="step-indicator">1 / 3</span></div>
+        <div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div>
+        <div id="site-error" class="notice error hidden" role="alert"></div>
+        <div id="closed-message" class="notice hidden">Bu dönem için başvuru süresi sona erdi. Bir sonraki seçme duyurusunu okulundan takip edebilirsin.</div>
+        <form id="apply-form" novalidate>
+          <div class="step" data-step="0">
+            <div class="form-intro">Başvuru formunu yalnızca kendi bilgilerinle doldur. Burada yeteneklerini, merakını ve düşünce biçimini tanımak istiyoruz.</div>
+            <label class="field"><span>Adın ve soyadın <em>*</em></span><input name="full_name" type="text" autocomplete="name" minlength="3" maxlength="90" placeholder="Ad Soyad" required></label>
+            <div class="two-col"><label class="field"><span>Sınıf düzeyin <em>*</em></span><select name="grade" required><option value="">Seçiniz</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label><label class="field"><span>Şuben <em>*</em></span><input name="section" maxlength="4" placeholder="Örn. A" autocomplete="off" required></label></div>
+            <label class="field"><span>En çok ilgini çeken tema <em>*</em></span><select id="theme-select" name="theme" required><option value="">Bir alan seç</option></select></label>
+            <label class="field"><span>Takıma hangi yönünle katkı sağlamak istersin? <em>*</em></span><select id="strength-select" name="strength" required><option value="">Bir alan seç</option></select></label>
+            <div class="privacy-box"><strong>Bilgilendirme</strong><p>Bu okul içi ön seçmede yalnızca ad-soyad, sınıf/şube, seçtiğin alanlar ve yanıtların kaydedilir. Yanıtların yetkili danışman öğretmen tarafından incelenir. Telefon, adres, T.C. kimlik numarası veya fotoğraf istenmez. İletişim ve veri saklama koşulları için okul yönetiminin bilgilendirmesi esas alınır. Bu form bir resmî turnuva kaydı değildir.</p></div>
+            <label class="check-line"><input type="checkbox" name="acknowledge" required><span>Başvuru hakkındaki bilgilendirmeyi okudum. <em>*</em></span></label>
+            <label class="check-line"><input type="checkbox" name="original_work" required><span>Ön test yanıtlarını kendim hazırlayacağım. <em>*</em></span></label>
+            <label class="trap" aria-hidden="true">Bu alanı boş bırakın<input name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <div class="step hidden" data-step="1"><div class="form-intro">Her durum için sana en uygun gelen <b>bir seçeneği</b> işaretle. Kodlama veya teknik terim bilmen gerekmiyor.</div><div id="questions"></div></div>
+          <div class="step hidden" data-step="2"><div class="form-intro">Artık sıra sende. İki soruya da kendi cümlelerinle cevap ver. Uzun yazmak değil, net düşünmek önemli.</div><label class="field essay"><span><b>7.</b> Okulunda ya da çevrende çözmek istediğin gerçek bir sorun nedir? Kimler etkileniyor, bu sorunun varlığını nasıl gözlemler veya kanıtlarsın? <em>*</em></span><textarea name="idea" rows="6" minlength="30" maxlength="1500" placeholder="Örneğin: Nerede, kimler için, ne sıklıkla yaşanıyor? Bunu nasıl ölçebilirim?"></textarea><small>En az 30 karakter · <span id="idea-count">0</span>/1500</small></label><label class="field essay"><span><b>8.</b> Bu sorunu çözmek için nasıl bir fikir önerirsin? Yapay zekâ kullanacaksan ne yapacağını açıkla; kullanmayacaksan nedenini belirt. Fikrini nasıl test edersin? <em>*</em></span><textarea name="solution" rows="6" minlength="30" maxlength="1500" placeholder="Çözümün nasıl işler? İşe yaradığını nasıl anlarsın?"></textarea><small>En az 30 karakter · <span id="solution-count">0</span>/1500</small></label><div class="submission-note">Başvurunu gönderdiğinde yanıtların öğretmen paneline kaydedilir. Gönderdikten sonra bu ekrandan yanıtlarını değiştiremezsin.</div></div>
+          <div id="validation" class="notice error hidden" role="alert"></div><div id="form-actions" class="form-actions"><button type="button" id="back" class="button subtle hidden">← Geri dön</button><button type="button" id="next" class="button primary">Devam et <span aria-hidden="true">→</span></button><button type="submit" id="submit" class="button primary hidden">Başvuruyu gönder <span aria-hidden="true">↗</span></button></div>
+        </form>
+        <div id="success" class="success hidden" role="status"><div class="success-symbol">✓</div><span class="section-kicker">BAŞVURUN ALINDI</span><h3>Fikrinin ilk adımını attın!</h3><p>Başvurun kaydedildi. Açık uçlu cevapların da değerlendirildikten sonra danışman öğretmen tarafından seçim süreci yürütülecek.</p><div class="ref-card">Başvuru kodun <strong id="reference"></strong></div><p class="quiet">Bu kodu not alabilirsin. Bu ekranı kapattığında başvuru bilgilerini tekrar görüntüleyemezsin.</p></div>
+      </div>
+    </div></section>
+    <section class="bottom-promo wrap"><div><span class="section-kicker">BİR SONRAKİ ADIM</span><h2>Fikir üretenler,<br>geleceği kurar.</h2></div><p>Başvurular cuma gününe kadar açık. Öğrencilerin testi tek başına tamamlaması bekleniyor. Nihai takım seçimi, öğretmen değerlendirmesi ve gerektiğinde kısa görüşmeyle yapılacak.</p></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-row"><div><b>TEDKOD</b><small>TED Trabzon Koleji · Öğrenci ön seçme portalı</small></div><div><a href="https://okuldanogrendim.com.tr" target="_blank" rel="noopener noreferrer">Turnuva hakkında ↗</a><a href="./admin/">Öğretmen girişi</a></div></div><p class="footer-disclaimer wrap">Bağımsız okul içi ön seçme çalışmasıdır; MEB, Koç Holding veya Vehbi Koç Vakfının resmî başvuru sitesi değildir.</p></footer>
+</body></html>
