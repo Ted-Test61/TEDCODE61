@@ -270,3 +270,199 @@ th{background:#fafbfd}
  .pulse-dot,.form-online-dot,.art-radar-one,.art-radar-three,.logo-stage{animation:none!important}
  .js-animate [data-animate]{opacity:1!important;transform:none!important}
 }
+
+/* =============================================================
+   TEDKOD 2.1 • Okunabilir tipografi güncellemesi (2026-11-23)
+   Tek dosya güncellemesidir. HTML, JavaScript ve Supabase'e dokunmaz.
+   Türkiye Türkçesi için sistem yazı tipleri ve dengeli karakter aralığı.
+   ============================================================= */
+:root {
+  --readable-text: #172743;
+  --readable-muted: #54647b;
+  --readable-on-dark: #d8e2f2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Arial, sans-serif;
+  font-synthesis: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  color: var(--readable-text);
+}
+button, input, select, textarea {font-family: inherit; letter-spacing: 0}
+/* Başlıkları olduğundan geniş ve bitişik gösteren aşırı sıkıştırmayı kaldır. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 740;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  text-wrap: pretty;
+}
+strong, b {font-weight: 700}
+a, button {text-underline-offset: .2em}
+
+/* Üst menü */
+.brand-type strong {font-size: 24px; letter-spacing: -0.025em; font-weight: 790; line-height: 1.16}
+.brand-type small {font-size: 10.5px; font-weight: 650; letter-spacing: .045em; color: #586982; line-height: 1.35}
+.main-nav > a:not(.nav-cta) {font-size: 14px; font-weight: 610; letter-spacing: 0; color: #34445f}
+.nav-cta {font-size: 13.5px; font-weight: 700; letter-spacing: 0}
+
+/* Ana başlık: 115px / -.094em yerine daha net, ferah ve okunabilir. */
+.premium-hero h1 {
+  font-size: clamp(54px, 5.75vw, 88px);
+  line-height: 1.10;
+  letter-spacing: -0.035em;
+  font-weight: 760;
+  margin: 30px 0 30px;
+  text-wrap: balance;
+}
+.hero-gradient {background-image: linear-gradient(104deg, #ffdbe1 0%, #ff8ea1 45%, #ff4562 100%)}
+.hero-kicker {
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: .065em;
+  line-height: 1.4;
+  color: #d1dcf0;
+}
+.hero-lead {
+  font-size: 18px;
+  line-height: 1.65;
+  letter-spacing: 0;
+  color: var(--readable-on-dark);
+  max-width: 580px;
+}
+.hero-actions .button,
+.hero-secondary {font-size: 15px; font-weight: 690; letter-spacing: 0}
+.hero-metrics strong {font-size: 27px; font-weight: 730; letter-spacing: -0.02em}
+.hero-metrics span {font-size: 12.5px; line-height: 1.45; color: #c4d1e8}
+.hero-bottom {font-size: 11px; font-weight: 650; letter-spacing: .06em; color: #becbe0; line-height: 1.5}
+.hero-bottom a {color: #dce6fa}
+.floating-label small {font-size: 10.5px; font-weight: 640; letter-spacing: .05em; color: #c7d4ee}
+.floating-label b {font-size: 14px; font-weight: 680; letter-spacing: 0}
+.logo-stage-name {letter-spacing: -0.035em; font-weight: 780}
+.logo-stage-subtitle {font-size: 9px; letter-spacing: .05em; font-weight: 690; color: #64728a}
+.orbit-tag {font-size: 11px; letter-spacing: .06em; color: #c4d2ef}
+
+/* İçerik bölümlerinde net hiyerarşi */
+.section-kicker {font-size: 12px; font-weight: 740; letter-spacing: .07em}
+.section-heading h2, .themes-heading h2, .apply-aside h2 {
+  font-size: clamp(36px, 4.2vw, 58px);
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+  font-weight: 740;
+}
+.section-heading h2 span, .themes-heading h2 span {color: #68768b}
+.section-heading p, .themes-heading p, .apply-aside > p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #536379;
+  letter-spacing: 0;
+}
+.process-num, .theme-index {font-size: 12px; letter-spacing: .06em; font-weight: 680}
+.process-card h3 {font-size: 22px; line-height: 1.26; letter-spacing: -0.015em; font-weight: 730}
+.process-card p {font-size: 15px; line-height: 1.7; color: #53647b}
+.theme-card-copy h3 {font-size: 25px; line-height: 1.25; letter-spacing: -0.019em; font-weight: 730}
+.theme-card-copy p {font-size: 15px; line-height: 1.64; color: #f0f3fa}
+.theme-card-copy span {font-size: 13px; letter-spacing: 0; font-weight: 680}
+.band-label small {font-size: 11px; letter-spacing: .07em; font-weight: 700}
+.band-label strong {font-size: 21px; letter-spacing: -.015em; font-weight: 730}
+.countdown span {font-size: 16px; font-weight: 660}
+.countdown small {font-size: 12px; color: #5a6980}
+.deadline-link {font-size: 13px; font-weight: 690}
+
+/* Başvuru formu: öğrenciler için 16px temel, daha ferah satırlar */
+.side-badge {font-size: 11.5px; letter-spacing: .06em; font-weight: 720}
+.side-list div {font-size: 15px; letter-spacing: 0; font-weight: 620}
+.aside-foot {font-size: 13.5px; color: #4d5e75; line-height: 1.7}
+.form-overline {font-size: 11.5px; letter-spacing: .06em; font-weight: 720; color: #53647a}
+.form-top h3 {font-size: clamp(29px, 3vw, 36px); letter-spacing: -0.025em; line-height: 1.2; font-weight: 740}
+.step-indicator {font-size: 16px; font-weight: 750}
+.form-intro {font-size: 15.5px; line-height: 1.65; color: #455872}
+.field > span, .essay > span {font-size: 15px; font-weight: 680; line-height: 1.55; color: #20304b}
+.field input, .field select, .field textarea, .filters input, .filters select, .login-card input {
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 1.5;
+  color: #172946;
+}
+.field input::placeholder, .field textarea::placeholder, .login-card input::placeholder {color: #6e7d92; opacity: 1}
+.privacy-box {font-size: 14px; line-height: 1.65; color: #3d516b}
+.privacy-box p {font-size: 14px; color: #40536c; line-height: 1.7}
+.check-line {font-size: 14.5px; line-height: 1.65; color: #394e69}
+.question-card h4 {font-size: 17px; line-height: 1.55; letter-spacing: 0; font-weight: 690}
+.question-tag {font-size: 11.5px; letter-spacing: .05em; font-weight: 710; color: #52627b}
+.option {font-size: 15px; line-height: 1.58; color: #2d415b; padding: 14px 15px}
+.essay small {font-size: 12.5px; color: #596a82}
+.submission-note {font-size: 13.5px; line-height: 1.7; color: #3e526d}
+.notice {font-size: 14px; line-height: 1.65}
+.button, .form-actions .button {font-size: 15px; font-weight: 690; letter-spacing: 0}
+.success h3 {font-size: 29px; letter-spacing: -.025em}
+.success p {font-size: 15px; line-height: 1.75}
+.ref-card {font-size: 13px}
+.premium-bottom h2 {font-size: clamp(32px, 3.8vw, 50px); letter-spacing: -.03em; line-height: 1.2; font-weight: 740}
+.premium-bottom p {font-size: 16px; line-height: 1.7; color: #53657d}
+.footer-row b {letter-spacing: 0; font-size: 18px}
+.footer-row small, .footer-row > div:last-child {font-size: 12.5px; line-height: 1.65; color: #c7d4e8}
+.footer-disclaimer {font-size: 12px; line-height: 1.65; color: #bac7db}
+
+/* Öğretmen paneli: sonuçlar ve cevaplar küçük puntoda kaybolmasın */
+.login-card h1, .admin-heading h1 {font-size: clamp(37px, 4vw, 56px); letter-spacing: -.028em; line-height: 1.15; font-weight: 740}
+.login-card p, .admin-heading p {font-size: 15px; line-height: 1.7; color: #4f6078}
+.admin-header-right .header-link {font-size: 13.5px}
+.stats small {font-size: 11.5px; letter-spacing: .045em; color: #52637b}
+.stats strong {font-size: 39px; letter-spacing: -.025em}
+.table-head h2 {font-size: 23px; letter-spacing: -.015em}
+.table-head p {font-size: 13px; color: #53637b}
+table {font-size: 14px}
+th {font-size: 12px; font-weight: 720; letter-spacing: .02em; color: #4e6078}
+td {color: #324760}
+.pill {font-size: 12px; font-weight: 680}
+.view-button {font-size: 13.5px}
+.rubric h3 {font-size: 17px}
+.rubric p, .answer-box p {font-size: 14px; line-height: 1.75; color: #455872}
+.student-meta small, .score-grid small, .drawer-head small {font-size: 12px}
+.student-meta b, .answer-box h4 {font-size: 14px}
+.review-form h3 {font-size: 19px}
+
+/* 13 inç dizüstü, tablet ve telefonlarda ölçeklendirme */
+@media (max-width: 1120px) {
+  .premium-hero h1 {font-size: clamp(53px, 6vw, 76px)}
+}
+@media (max-width: 870px) {
+  .premium-hero h1 {font-size: clamp(54px, 9vw, 78px)}
+  .hero-lead {font-size: 17px}
+  .themes-heading h2, .section-heading h2, .apply-aside h2 {font-size: clamp(37px, 5.9vw, 53px)}
+}
+@media (max-width: 650px) {
+  .brand-type strong {font-size: 21px}
+  .brand-type small {font-size: 8.5px; letter-spacing: 0}
+  .nav-cta {font-size: 12.5px; padding: 11px 13px}
+  .premium-hero h1 {font-size: clamp(46px, 11.6vw, 65px); line-height: 1.1; letter-spacing: -.03em; margin: 23px 0}
+  .hero-kicker {font-size: 10px; letter-spacing: .035em}
+  .hero-lead {font-size: 16px; line-height: 1.68}
+  .hero-actions .button, .hero-secondary {font-size: 13.5px}
+  .hero-metrics strong {font-size: 22px}
+  .hero-metrics span {font-size: 11.5px}
+  .hero-bottom {font-size: 9.5px; letter-spacing: .01em}
+  .section-kicker {font-size: 11px; letter-spacing: .06em}
+  .section-heading h2, .themes-heading h2, .apply-aside h2 {font-size: clamp(34px, 9.4vw, 43px)}
+  .section-heading p, .themes-heading p, .apply-aside > p {font-size: 15px}
+  .process-card h3 {font-size: 20px}
+  .theme-card-copy h3 {font-size: 23px}
+  .theme-card-copy p {font-size: 14px}
+  .form-top h3 {font-size: 29px}
+  .form-intro {font-size: 15px}
+  .field > span, .essay > span {font-size: 14.5px}
+  .option {font-size: 15px}
+  .button, .form-actions .button {font-size: 14px}
+  .premium-bottom h2 {font-size: 32px}
+  .premium-bottom p {font-size: 15px}
+  .footer-disclaimer {font-size: 11.5px}
+  .admin-heading h1 {font-size: 37px}
+  .stats strong {font-size: 33px}
+}
