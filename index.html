@@ -2,112 +2,106 @@
 <html lang="tr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#061124">
-  <meta name="description" content="TEDKOD yapay zekâ turnuvası öğrenci ön seçme ve yetenek keşif başvurusu.">
-  <title>TEDKOD | Bir Fikirle Başlar</title>
-  <link rel="icon" type="image/png" href="./assets/favicon.png"><link rel="stylesheet" href="./assets/styles.css"><link rel="stylesheet" href="./assets/premium.css?v=3.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07132c">
+  <meta name="description" content="TEDKOD: TED Trabzon Koleji teknoloji takımı. Takımı tanı, bir fikri projeye dönüştürmeyi keşfet ve öğrenci seçmelerine başvur.">
+  <title>TEDKOD | Düşün. Keşfet. Üret.</title>
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="stylesheet" href="./assets/premium.css?v=3.0">
+  <link rel="stylesheet" href="./assets/tedkod-v4.css?v=4.0.1">
   <script src="./config.js" defer></script>
-  <script src="./assets/site-settings.js?v=3.0" defer></script>
+  <script src="./assets/site-settings.js?v=4.0.1" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="./assets/shared.js" defer></script>
-  <script src="./assets/app.js" defer></script><script src="./assets/premium.js" defer></script>
-  <script src="./assets/experience-3d.js?v=3.0" defer></script>
+  <script src="./assets/app.js" defer></script>
+  <script src="./assets/premium.js" defer></script>
+  <script src="./assets/tedkod-v4.js?v=4.0.1" defer></script>
 </head>
-<body>
+<body class="tedkod-v4">
+  <div id="reading-progress" aria-hidden="true"></div>
   <div class="top-accent"></div>
   <div class="site-nav-wrap"><header class="header wrap premium-header">
-    <a class="brand" href="./" aria-label="TEDKOD ana sayfa"><span class="logo-wrap"><img src="./assets/tedkod-symbol.png" alt="" width="38" height="48"></span><span class="brand-type"><strong>TED<span>KOD</span></strong><small>TED TRABZON KOLEJİ · TAKIMI</small></span></a>
-    <nav class="main-nav" aria-label="Ana menü"><a href="#hikaye">Keşfet</a><a href="#proje-yolu">Proje rehberi</a><a href="#temalar">Temalar</a><a class="teacher-nav" href="./admin/">Öğretmen girişi</a><a class="nav-cta" href="#basvuru">Şimdi başvur <span aria-hidden="true">↗</span></a></nav>
+    <a class="brand" href="./" aria-label="TEDKOD ana sayfa"><span class="logo-wrap"><img src="./assets/tedkod-symbol.png" alt="" width="38" height="48"></span><span class="brand-type"><strong>TED<span>KOD</span></strong><small>TED TRABZON KOLEJİ · TEKNOLOJİ TAKIMI</small></span></a>
+    <nav class="main-nav" aria-label="Ana menü">
+      <a href="#hakkinda">TEDKOD</a><a href="#proje-yolu">Proje rehberi</a><a href="#fikir-atolyesi">Fikir laboratuvarı</a><a class="teacher-nav" href="./admin/">Öğretmen</a><a class="nav-cta" href="#basvuru">Başvur <span aria-hidden="true">↗</span></a>
+    </nav>
   </header></div>
   <main>
-    <section class="premium-hero" aria-labelledby="hero-title">
-  <div class="hero-glow hero-glow-a" aria-hidden="true"></div><div class="hero-glow hero-glow-b" aria-hidden="true"></div>
-  <div class="premium-hero-inner wrap">
-    <div class="hero-copy" data-animate>
-      <span class="hero-kicker"><span class="pulse-dot"></span> 2026–2027 · TEDKOD ÖĞRENCİ SEÇMELERİ</span>
-      <h1 id="hero-title">Bir fikirle<br><span class="hero-gradient">geleceği</span><br>değiştir<span class="hero-period">.</span></h1>
-      <p class="hero-lead">Büyük projeler pahalı teknolojiyle değil, <strong>doğru soruyla</strong> başlar. Merak et, araştır, çözümünü tasarla. TEDKOD takım seçmelerinde fikrini göster.</p>
-      <div class="hero-actions"><a class="button primary hero-primary" href="#basvuru">Başvurunu başlat <span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#hikaye">Hikâyeyi keşfet <span aria-hidden="true">↓</span></a></div>
-      <div class="hero-metrics" aria-label="Ön değerlendirme bilgileri"><div><strong>5–8</strong><span>Sınıf düzeyi</span></div><div><strong>8</strong><span>Kısa soru</span></div><div><strong>15 dk</strong><span>Yaklaşık süre</span></div></div>
-    </div>
-    <div class="premium-art" aria-label="TEDKOD meşale logosu ve yaratıcı tasarım görseli" data-animate>
-      <div class="art-radar art-radar-one"></div><div class="art-radar art-radar-two"></div><div class="art-radar art-radar-three"></div>
-      <div class="spark spark-one"></div><div class="spark spark-two"></div><div class="spark spark-three"></div>
-      <div class="floating-label float-label-one"><span class="float-icon">✦</span><span><small>ADIM 01</small><b>Merak et.</b></span></div>
-      <div class="logo-stage"><span class="logo-shine"></span><img src="./assets/tedkod-symbol.png" alt="" width="208" height="260"><div class="logo-stage-name">TED<span>KOD</span></div><div class="logo-stage-subtitle">DÜŞÜN · KEŞFET · ÜRET</div></div>
-      <div class="floating-label float-label-two"><span class="float-icon blue">↗</span><span><small>ADIM 02</small><b>Çözüm üret.</b></span></div>
-      <div class="orbit-tag">IDEAS INTO IMPACT <span>✺</span></div>
-    </div>
-  </div>
-  <div class="hero-bottom wrap"><span>SADECE KOD YAZMAK DEĞİL, DAHA İYİ SORULAR SORMAK.</span><a href="#hikaye" aria-label="Sonraki bölüme git">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
-</section>
-    <section class="deadline-band"><div class="wrap band-inside"><div class="band-label"><span class="calendar-icon" aria-hidden="true">◷</span><div><small>SON BAŞVURU TARİHİ</small><strong id="deadline-label">30 Kasım Pazartesi</strong></div></div><div class="countdown"><span id="countdown">Başvuru tarihi yükleniyor...</span><small>Türkiye saatiyle 23.59'a kadar</small></div><a class="deadline-link" href="#basvuru">Fikrini gönder <span aria-hidden="true">↗</span></a></div></section>
 
-<section id="hikaye" class="idea-journey" aria-labelledby="journey-title">
-  <div class="journey-scroll-space">
-    <div class="journey-stage">
-      <div class="journey-noise" aria-hidden="true"></div>
-      <div class="journey-halo journey-halo-a" aria-hidden="true"></div><div class="journey-halo journey-halo-b" aria-hidden="true"></div>
-      <div class="journey-shell wrap">
-        <div class="journey-words">
-          <p class="journey-overline"><span class="journey-overline-mark">✦</span> FİKİRDEN ETKİYE <span id="journey-fraction">01 / 04</span></p>
-          <h2 id="journey-title">Her şey bir <em>soruyla</em> başlar.</h2>
-          <p id="journey-description">Çevrene dikkatle bak. Herkesin alıştığı bir durum, belki de henüz çözülmemiş bir problemdir.</p>
-          <div class="journey-bottom"><div class="journey-progress" aria-label="Hikâye ilerlemesi"><span id="journey-progress-fill"></span></div><small>Kaydırarak keşfet <span aria-hidden="true">↓</span></small></div>
-        </div>
-        <div class="journey-visual" aria-hidden="true">
-          <div class="journey-universe">
-            <div class="journey-aura"></div><div class="journey-ring journey-ring-outer"></div><div class="journey-ring journey-ring-middle"></div>
-            <div class="journey-node journey-node-1"></div><div class="journey-node journey-node-2"></div><div class="journey-node journey-node-3"></div>
-            <div class="journey-card journey-card-rear"><span class="journey-code">01 / KEŞFET</span><div class="journey-card-icon">◎</div><span>Merak, ilk adımdır.</span></div>
-            <div class="journey-card journey-card-main"><div class="journey-card-top"><span>TEDKOD</span><span>IDEA → IMPACT</span></div><div class="journey-symbol"><img src="./assets/tedkod-symbol.png" alt=""></div><strong id="journey-card-label">FİKİR</strong><div class="journey-card-footer"><span>GÖZLEMLE</span><span>○ ○ ○</span></div></div>
-            <div class="journey-card journey-card-front"><span class="journey-code">PROJE / 2027</span><div class="journey-mini-bars"><i></i><i></i><i></i><i></i></div><span>Deneyerek geliştir.</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="journey-markers" aria-label="Fikir yolculuğu aşamaları"><span class="is-active">01</span><span>02</span><span>03</span><span>04</span></div>
+<section class="v4-hero" aria-labelledby="v4-hero-title">
+  <div class="v4-hero-grid wrap">
+    <div class="v4-hero-copy" data-v4-reveal="left">
+      <p class="v4-eyebrow v4-eyebrow-light"><span class="v4-status-dot"></span> 2026–2027 · ÖĞRENCİ SEÇMELERİ</p>
+      <h1 id="v4-hero-title">Düşün.<br><span>Keşfet.</span><br>Üret<span class="v4-red">.</span></h1>
+      <p class="v4-hero-desc">Fikrin varsa bir başlangıcın var. TEDKOD'la onu bir projeye dönüştür.</p>
+      <div class="v4-hero-ctas"><a class="v4-cta v4-cta-primary" href="#basvuru">Takıma başvur <span aria-hidden="true">↗</span></a><a class="v4-cta v4-cta-ghost" href="#hakkinda">TEDKOD'u tanı <span aria-hidden="true">↓</span></a></div>
+      <div class="v4-hero-notes"><span>5–8. sınıflar</span><i></i><span>8 soruluk ön test</span><i></i><span>Yaklaşık 15 dk</span></div>
+    </div>
+    <div class="v4-device-scene" data-v4-reveal="scale" aria-label="TEDKOD meşale simgesini taşıyan üç boyutlu teknoloji sahnesi">
+      <div class="v4-scene-aura"></div><div class="v4-scene-circle v4-circle-1"></div><div class="v4-scene-circle v4-circle-2"></div>
+      <span class="v4-orbit-star v4-star-1" aria-hidden="true">✦</span><span class="v4-orbit-star v4-star-2" aria-hidden="true">✶</span>
+      <div class="v4-glass-chip v4-chip-one"><b>01</b><span>MERAK</span></div>
+      <div class="v4-device" id="v4-device"><div class="v4-device-highlight"></div><div class="v4-device-front"><img src="./assets/tedkod-symbol.png" width="170" height="205" alt="TEDKOD meşale logosu"><strong>TED<span>KOD</span></strong><small>GELECEĞİ BİRLİKTE TASARLA</small></div><div class="v4-device-edge"></div></div>
+      <div class="v4-glass-chip v4-chip-two"><b>02</b><span>ÜRETİM</span></div>
+      <span class="v4-scene-caption" aria-hidden="true">IDEAS INTO IMPACT</span>
     </div>
   </div>
-  <div class="journey-static-steps wrap" aria-label="Proje yolculuğunun özeti">
-    <p>01 · Problemi fark et</p><p>02 · Kanıt topla</p><p>03 · Çözümü tasarla</p><p>04 · Test ederek geliştir</p>
+  <div class="v4-hero-bottom wrap"><span>HER BÜYÜK PROJE BİR SORUYLA BAŞLAR</span><a href="#hakkinda">Keşfetmeye başla <span aria-hidden="true">↓</span></a></div>
+</section>
+<section class="deadline-band v4-deadline" aria-label="Son başvuru bilgisi"><div class="wrap band-inside"><div class="band-label"><span class="calendar-icon" aria-hidden="true">◷</span><div><small>OKUL İÇİ SEÇME SON BAŞVURUSU</small><strong id="deadline-label">30 Kasım 2026 Pazartesi</strong></div></div><div class="countdown"><span id="countdown">Kalan süre hesaplanıyor...</span><small>23.59 · Türkiye saati</small></div><a class="deadline-link" href="#basvuru">Başvuruya git <span aria-hidden="true">↗</span></a></div></section>
+
+<section class="v4-about" id="hakkinda" aria-labelledby="v4-about-title">
+  <div class="wrap v4-about-layout">
+    <div class="v4-about-copy" data-v4-reveal="up">
+      <p class="v4-kicker">BİZ KİMİZ? · 2026'DA KURULDU</p>
+      <h2 id="v4-about-title">Bir takım.<br><em>Sayısız fikir.</em></h2>
+      <p><strong>TEDKOD</strong>, 2026 yılında TED Trabzon Koleji Bilişim Teknolojileri ve Yazılım öğretmenleri tarafından kurulan teknoloji ve proje geliştirme takımıdır.</p>
+      <p>Yaş ve sınıf düzeylerine uygun <strong>bölgesel, ulusal ve uluslararası yarışmalara</strong> hazırlanmak; yapay zekâ, yazılım, tasarım ve problem çözme becerilerini geliştirmek isteyen öğrencileri buluşturur.</p>
+      <a class="v4-text-link" href="#proje-yolu">Birlikte nasıl üretiyoruz? <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="v4-about-poster" data-v4-reveal="right">
+      <div class="v4-about-poster-top"><span>TEDKOD / 2026</span><span>TEKNOLOJİ TAKIMI</span></div>
+      <div class="v4-about-poster-art" aria-hidden="true"><div class="v4-poster-rings"></div><img src="./assets/tedkod-symbol.png" width="142" height="178" alt=""></div>
+      <div class="v4-about-poster-bottom"><strong>Merak, bizi<br>bir araya getirir.</strong><span>61 / TRABZON</span></div>
+    </div>
+  </div>
+  <div class="wrap v4-principles" data-v4-reveal="up">
+     <div><span class="v4-pillar-icon" aria-hidden="true">◎</span><strong>Merak et</strong><small>Soru sormaktan çekinme.</small></div>
+     <div><span class="v4-pillar-icon" aria-hidden="true">✳</span><strong>Birlikte düşün</strong><small>Farklı becerileri birleştir.</small></div>
+     <div><span class="v4-pillar-icon" aria-hidden="true">↗</span><strong>Deneyerek üret</strong><small>Fikrini test ederek geliştir.</small></div>
+  </div>
+  <div class="wrap v4-about-belief" data-v4-reveal="up"><span>TEDKOD'DA</span><p>Yalnızca kod yazanlar değil; <em>gözlemleyen, tasarlayan, anlatan ve çözüm arayanlar</em> da takımın parçasıdır.</p></div>
+</section>
+
+<section class="v4-idea-section" id="fikrin-gucu" aria-labelledby="v4-idea-title">
+  <div class="wrap v4-idea-layout">
+    <div class="v4-idea-intro" data-v4-reveal="left"><p class="v4-kicker">FİKRİN GÜCÜ</p><h2 id="v4-idea-title">Önce<br><span>problemi</span> gör.</h2><p>Pahalı bir cihaz değil, doğru soru seni ileri taşır.</p><div class="v4-idea-actions"><button class="v4-toggle is-active" type="button" data-example="problem" aria-pressed="true">Problemi göster</button><button class="v4-toggle" type="button" data-example="solution" aria-pressed="false">Çözümü göster</button></div></div>
+    <div class="v4-example-card" data-v4-reveal="scale" aria-live="polite">
+       <div class="v4-example-top"><span id="v4-example-index">01 / FARK ET</span><span aria-hidden="true">✦</span></div>
+       <div class="v4-example-visual"><span class="v4-example-ring"></span><div id="v4-example-icon">?</div></div>
+       <h3 id="v4-example-title">Sorun gerçekten ne?</h3>
+       <p id="v4-example-quote">“Bahçedeki atıklar doğru kutulara ayrıştırılmıyor.”</p>
+       <div class="v4-example-feedback" id="v4-example-feedback">Bu problemi gözlemleyebilir, sayabilir ve araştırabilirsin.</div>
+    </div>
   </div>
 </section>
 
-
-<section class="idea-manifesto" aria-labelledby="idea-manifesto-heading">
- <div class="wrap manifesto-grid"><div class="manifesto-note"><span>TEDKOD DÜŞÜNCE BİÇİMİ</span><div class="manifesto-star" aria-hidden="true">✳</div></div>
- <div class="manifesto-content"><p class="micro-label">BÜYÜK PROJELER NASIL BAŞLAR?</p><h2 id="idea-manifesto-heading">En değerli parça,<br><span>senin fikrin.</span></h2><p class="manifesto-lead">Bir projeyi özel yapan ilk şey kod satırları veya pahalı cihazlar değil; <strong>gerçek bir sorunu fark etmen</strong> ve bunun neden önemli olduğunu açıklayabilmendir.</p><div class="compare-row"><div class="compare-card not-yet"><small>HENÜZ PROBLEM DEĞİL</small><p>“Okulumuza akıllı çöp kutusu yapalım.”</p><span>Bu bir çözüm önerisi.</span></div><div class="compare-card stronger"><small>GÜÇLÜ BİR BAŞLANGIÇ</small><p>“Bahçedeki atıklar doğru kutulara ayrıştırılmıyor.”</p><span>Bu araştırılabilir bir problem.</span></div></div></div></div>
-</section>
-<section id="proje-yolu" class="project-roadmap" aria-labelledby="roadmap-title">
- <div class="wrap"><div class="roadmap-heading"><span class="section-kicker">ÖĞRENCİYE ÖZEL PROJE REHBERİ</span><h2 id="roadmap-title">Bir fikri, <span>projeye dönüştür.</span></h2><p>Nereden başlayacağını bilmiyor musun? Turnuva rehberindeki çalışma yaklaşımını altı anlaşılır adıma ayırdık. Her aşamada somut bir çıktı elde et.</p></div>
- <div class="roadmap-grid">
-  <article class="roadmap-card" data-animate><div class="roadmap-card-top"><span class="roadmap-number">01</span><span class="roadmap-symbol">⌕</span></div><h3>Fark et</h3><p>Okulunda, evinde veya çevrende seni düşündüren en az üç sorunu not et.</p><div class="roadmap-action"><b>İlk görev</b><span>“Bu sorun kimleri, ne zaman etkiliyor?” sorusunu sor.</span></div></article>
-  <article class="roadmap-card" data-animate><div class="roadmap-card-top"><span class="roadmap-number">02</span><span class="roadmap-symbol">▥</span></div><h3>Kanıt topla</h3><p>Gözlem yap, anonim görüşler al, sayım veya ölçüm yap. Sorunun gerçek olduğunu göster.</p><div class="roadmap-action"><b>İlk görev</b><span>Basit bir tablo oluştur ve sonuçları karşılaştır.</span></div></article>
-  <article class="roadmap-card" data-animate><div class="roadmap-card-top"><span class="roadmap-number">03</span><span class="roadmap-symbol">✳</span></div><h3>Fikir üret</h3><p>İlk aklına gelen fikirde durma. Birden çok çözüm düşün, en uygununun nedenini açıkla.</p><div class="roadmap-action"><b>İlk görev</b><span>“Nasıl yapabiliriz?” diye başlayan üç soru yaz.</span></div></article>
-  <article class="roadmap-card" data-animate><div class="roadmap-card-top"><span class="roadmap-number">04</span><span class="roadmap-symbol">✧</span></div><h3>Yapay zekâyı sorgula</h3><p>Yapay zekâ bu çözümde gerçekten gerekli mi? Hangi veriyi alıp neyi tahmin edecek veya sınıflandıracak?</p><div class="roadmap-action"><b>İlk görev</b><span>“YZ olmasa çözüm nasıl çalışır?” sorusuna cevap ver.</span></div></article>
-  <article class="roadmap-card" data-animate><div class="roadmap-card-top"><span class="roadmap-number">05</span><span class="roadmap-symbol">⬡</span></div><h3>Prototip yap</h3><p>Kâğıt ekran tasarımı, kodsuz örnek veya çalışan uygulama: fikrin temel işleyişini göster.</p><div class="roadmap-action"><b>İlk görev</b><span>Çözümünün ilk kullanılabilir taslağını hazırla.</span></div></article>
-  <article class="roadmap-card" data-animate><div class="roadmap-card-top"><span class="roadmap-number">06</span><span class="roadmap-symbol">↗</span></div><h3>Test et, iyileştir</h3><p>Deneyen kişilerden geri bildirim al. Nelerin işe yaramadığını bul ve en az bir iyileştirme yap.</p><div class="roadmap-action"><b>İlk görev</b><span>Önce–sonra farkını Turnuva Defteri'ne kaydet.</span></div></article>
- </div>
- <p class="roadmap-source">Bu çalışma adımları, turnuva rehberindeki Problemi Keşfet, Çözümü Tasarla ve Projeni Geliştir aşamalarını öğrenci dostu bir dille açıklar. Okul içi seçme ile resmî turnuva başvurusu birbirinden ayrıdır.</p>
- </div>
-</section>
-<section class="idea-studio" aria-labelledby="idea-studio-title">
- <div class="wrap studio-grid"><div class="studio-intro"><span class="section-kicker">MİNİ FİKİR ATÖLYESİ</span><h2 id="idea-studio-title">Fikrin yoksa,<br><span>soruyla başla.</span></h2><p>Aşağıdan ilgini çeken bir alan seç. Kendine sorabileceğin örnek sorular gör. Bunlar hazır proje değil, araştırmaya başlama noktaları.</p><div class="studio-tabs" role="group" aria-label="Proje alanı seçimi"><button class="studio-tab is-selected" type="button" data-topic="learning" aria-pressed="true">Eğitim</button><button class="studio-tab" type="button" data-topic="access" aria-pressed="false">Erişilebilirlik</button><button class="studio-tab" type="button" data-topic="earth" aria-pressed="false">Çevre</button></div></div>
- <div class="studio-display" aria-live="polite"><div class="studio-display-head"><span id="studio-topic">01 / EĞİTİM</span><span>FİKİR ALANI ↗</span></div><div class="studio-spark" aria-hidden="true">✳</div><h3 id="studio-question">Bir konuyu öğrenirken en çok nerede zorlanıyoruz?</h3><p id="studio-explore">Birkaç sınıf arkadaşının zorlandığı konuları anonim biçimde gözlemle. Ortak bir örüntü var mı?</p><div class="studio-prompt"><small>ŞİMDİ KENDİNE SOR</small><strong id="studio-followup">Bu durumu gözlemle veya ölçerek nasıl kanıtlarım?</strong></div></div></div>
-</section>
-<section class="official-timeline"><div class="wrap"><div class="official-head"><div><span class="section-kicker">YARIŞMA YOL HARİTASI</span><h2>Seçmelerden sonra ne olacak?</h2></div><p>Aşağıdaki tarihler resmî turnuva aşamalarıdır. <b>Okul içi TEDKOD ön seçme son tarihi 30 Kasım 2026'dır.</b></p></div><div class="official-grid"><div><span>01</span><strong>31 Ara 2026</strong><small>Problemi Keşfet<br>resmî son teslim</small></div><div><span>02</span><strong>15 Şub 2027</strong><small>Çözümü Tasarla<br>resmî son teslim</small></div><div><span>03</span><strong>26 Mar 2027</strong><small>Proje ve prototip<br>resmî son teslim</small></div></div></div></section>
-
-    <section id="surec" class="process wrap premium-process"><div class="section-heading"><span class="section-kicker">OKUL İÇİ ÖN SEÇME · 3 ADIM</span><h2>Başvurmak da<br><span>bir ilk adım.</span></h2><p>TEDKOD takım seçmeleri için kısa formu doldur, mini testi çöz, fikirlerini paylaş. Değerlendirmede düşünce sürecin önemlidir.</p></div><div class="process-grid premium-process-grid"><article class="process-card"><span class="process-num">01</span><div class="process-icon">◎</div><h3>Kendini tanıt</h3><p>Adını, sınıfını ve ilgilendiğin proje alanını seç.</p></article><article class="process-card"><span class="process-num">02</span><div class="process-icon">◇</div><h3>Mini testi çöz</h3><p>Gözlem, yapay zekâ, güvenlik ve takım çalışması üzerine 6 soru.</p></article><article class="process-card"><span class="process-num">03</span><div class="process-icon">✧</div><h3>Fikrini paylaş</h3><p>İki kısa soruda kendi çözümünü anlat. Öğretmenin değerlendirsin.</p></article></div></section>
-<section class="themes-section" id="temalar"><div class="wrap">
-  <div class="themes-heading" data-animate><span class="section-kicker">ÜÇ TEMA · SINIRSIZ FİKİR</span><h2>Sen hangi problemi<br><span>çözmek istersin?</span></h2><p>Turnuva için seçilebilecek üç ana tema var. Her biri gerçek dünyayı daha iyi bir yer hâline getirebilecek fikirleri bekliyor.</p></div>
-  <div class="themes-grid">
-   <article class="theme-card theme-card-edu" data-animate><div class="theme-index">01 / ÖĞRENME</div><div class="theme-symbol" aria-hidden="true">✳</div><div class="theme-card-copy"><h3>Eğitim ve<br>Öğrenmenin Geleceği</h3><p>Bir konuyu öğrenmeyi herkes için nasıl daha kolay hâle getiririz?</p><span>Fikri keşfet <b aria-hidden="true">↗</b></span></div></article>
-   <article class="theme-card theme-card-access" data-animate><div class="theme-index">02 / ERİŞİLEBİLİRLİK</div><div class="theme-symbol" aria-hidden="true">◉</div><div class="theme-card-copy"><h3>Sağlıklı Gelecek ve<br>Erişilebilirlik</h3><p>Teknoloji günlük yaşamı daha kapsayıcı hâle getirebilir mi?</p><span>Fikri keşfet <b aria-hidden="true">↗</b></span></div></article>
-   <article class="theme-card theme-card-earth" data-animate><div class="theme-index">03 / SÜRDÜRÜLEBİLİRLİK</div><div class="theme-symbol" aria-hidden="true">∞</div><div class="theme-card-copy"><h3>Çevre ve<br>Sürdürülebilir Yaşam</h3><p>Kaynaklarımızı daha akıllı kullanmak için ne geliştirebiliriz?</p><span>Fikri keşfet <b aria-hidden="true">↗</b></span></div></article>
-  </div>
+<section class="v4-roadmap" id="proje-yolu" aria-labelledby="v4-roadmap-title"><div class="wrap">
+<div class="v4-roadmap-head" data-v4-reveal="up"><div><p class="v4-kicker">PROJE REHBERİ</p><h2 id="v4-roadmap-title">Fikirden <span>projeye.</span></h2></div><p>Nereden başlayacağını bilmiyorsan bu altı adımı izle. Her kartta küçük bir görev var.</p></div>
+<div class="v4-roadmap-grid">
+<article class="v4-step v4-step-observe" data-v4-reveal="up"><div class="v4-step-top"><span>ADIM 01</span><span class="v4-step-arrow">↗</span></div><div class="v4-step-art" aria-hidden="true"><div class="v4-art-orbit"><div></div><i></i><b>?</b></div></div><h3>Gözlemle</h3><p>Çevrendeki gerçek bir sorunu bul.</p><div class="v4-step-task"><small>MİNİ GÖREV</small><strong>3 sorun not et.</strong></div></article><article class="v4-step v4-step-data" data-v4-reveal="up"><div class="v4-step-top"><span>ADIM 02</span><span class="v4-step-arrow">↗</span></div><div class="v4-step-art" aria-hidden="true"><div class="v4-art-chart"><span></span><span></span><span></span><span></span><span></span></div></div><h3>Kanıt topla</h3><p>Ölç, karşılaştır, sorunu yaşayanları dinle.</p><div class="v4-step-task"><small>MİNİ GÖREV</small><strong>Basit bir tablo hazırla.</strong></div></article><article class="v4-step v4-step-ideas" data-v4-reveal="up"><div class="v4-step-top"><span>ADIM 03</span><span class="v4-step-arrow">↗</span></div><div class="v4-step-art" aria-hidden="true"><div class="v4-art-light">✳<i>✦</i><b>✦</b></div></div><h3>Fikir üret</h3><p>Birden fazla çözüm düşün.</p><div class="v4-step-task"><small>MİNİ GÖREV</small><strong>3 farklı yol yaz.</strong></div></article><article class="v4-step v4-step-ai" data-v4-reveal="up"><div class="v4-step-top"><span>ADIM 04</span><span class="v4-step-arrow">↗</span></div><div class="v4-step-art" aria-hidden="true"><div class="v4-art-network"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><h3>YZ’yi sorgula</h3><p>Yapay zekâ nerede gerçekten işe yarar?</p><div class="v4-step-task"><small>MİNİ GÖREV</small><strong>Görevini tek cümlede açıkla.</strong></div></article><article class="v4-step v4-step-prototype" data-v4-reveal="up"><div class="v4-step-top"><span>ADIM 05</span><span class="v4-step-arrow">↗</span></div><div class="v4-step-art" aria-hidden="true"><div class="v4-art-screen"><span>▢ &nbsp;● ● ●</span><b>▰▰▱</b></div></div><h3>Prototip yap</h3><p>Fikrinin nasıl çalışacağını göster.</p><div class="v4-step-task"><small>MİNİ GÖREV</small><strong>İlk modelini çiz.</strong></div></article><article class="v4-step v4-step-test" data-v4-reveal="up"><div class="v4-step-top"><span>ADIM 06</span><span class="v4-step-arrow">↗</span></div><div class="v4-step-art" aria-hidden="true"><div class="v4-art-test"><span>✓</span><i></i></div></div><h3>Test et</h3><p>Dene, geri bildirim al, iyileştir.</p><div class="v4-step-task"><small>MİNİ GÖREV</small><strong>Bir geliştirme kaydet.</strong></div></article></div><p class="v4-roadmap-note">* TEDKOD okul içi hazırlık rehberidir. Resmî turnuva başvurularında güncel MEB şartnamesi esas alınır.</p></div></section>
+<section class="v4-lab" id="fikir-atolyesi" aria-labelledby="v4-lab-title"><div class="wrap v4-lab-layout">
+  <div class="v4-lab-intro" data-v4-reveal="left"><p class="v4-kicker v4-kicker-light">İNTERAKTİF FİKİR LABORATUVARI</p><h2 id="v4-lab-title">Bir alan seç.<br><span>Bir soru yakala.</span></h2><p>Hazır projeyi değil, araştırmaya değer soruyu bul.</p><div class="v4-lab-tabs" role="group" aria-label="İlgi alanı seç">
+     <button class="v4-lab-tab active" type="button" data-lab-topic="education" aria-pressed="true"><span aria-hidden="true">⌘</span>Eğitim</button>
+     <button class="v4-lab-tab" type="button" data-lab-topic="accessibility" aria-pressed="false"><span aria-hidden="true">◎</span>Erişilebilirlik</button>
+     <button class="v4-lab-tab" type="button" data-lab-topic="nature" aria-pressed="false"><span aria-hidden="true">✳</span>Çevre</button>
+   </div><a href="#basvuru" class="v4-lab-link">Aklında bir fikir var mı? Başvuruda anlat <span aria-hidden="true">↗</span></a></div>
+   <div class="v4-lab-console" data-v4-reveal="right"><div class="v4-console-top"><span><i></i><i></i><i></i></span><strong>FİKİR LAB / 01</strong><span id="v4-prompt-count">01 / 03</span></div><div class="v4-console-body"><p id="v4-prompt-theme">EĞİTİM VE ÖĞRENME</p><div class="v4-console-pulse" aria-hidden="true"><span>?</span><i></i></div><h3 id="v4-prompt-question" aria-live="polite">Bir konuyu öğrenirken en çok nerede zorlanıyoruz?</h3><div class="v4-console-hint"><b>İLK ADIM</b><p id="v4-prompt-hint">Sınıf arkadaşlarının deneyimlerini isim almadan gözlemle.</p></div></div><button class="v4-next-question" id="v4-next-question" type="button">Başka bir soru keşfet <span aria-hidden="true">↻</span></button></div>
 </div></section>
-    <section id="basvuru" class="application-section premium-application"><div class="wrap apply-layout"><aside class="apply-aside"><div class="side-badge"><span class="red-dot"></span> ÖĞRENCİ BAŞVURUSU</div><h2>Sıra senin.<br><span>Fikrini göster.</span></h2><p>Bu bir bilgi ezberi sınavı değil. Gözlem yapmana, fikir üretmene ve düşünceni açıklamana odaklanan kısa bir ön değerlendirme.</p><div class="side-rule"></div><div class="side-list"><div><span>01</span> Kendini tanıt</div><div><span>02</span> Durumları değerlendir</div><div><span>03</span> Kendi çözümünü öner</div></div><div class="aside-foot">Önemli: Bu form <strong>okul içi öğrenci ön seçmesi</strong> içindir. MEB'nin resmî turnuva başvurusu değildir.</div></aside>
+
+<section class="v4-timeline"><div class="wrap v4-timeline-wrap"><div class="v4-timeline-title" data-v4-reveal="left"><p class="v4-kicker">TURNUVA TAKVİMİ</p><h2>Seçmelerden <span>sonra.</span></h2></div><div class="v4-timeline-cards" data-v4-reveal="right"><div><small>31 ARALIK 2026</small><strong>Problemi Keşfet</strong></div><div><small>15 ŞUBAT 2027</small><strong>Çözümü Tasarla</strong></div><div><small>26 MART 2027</small><strong>Prototip ve Başvuru</strong></div></div></div></section>
+    <section id="basvuru" class="application-section premium-application"><div class="wrap apply-layout"><aside class="apply-aside"><div class="side-badge"><span class="red-dot"></span> ÖĞRENCİ BAŞVURUSU</div><h2>Sıra senin.<br><span>Fikrini paylaş.</span></h2><p>Bilgini değil, düşünme biçimini tanımak istiyoruz. 6 kısa soru ve 2 fikir sorusunu cevapla.</p><div class="side-rule"></div><div class="side-list"><div><span>01</span> Kendini tanıt</div><div><span>02</span> Durumları değerlendir</div><div><span>03</span> Kendi çözümünü öner</div></div><div class="aside-foot">Önemli: Bu form <strong>okul içi öğrenci ön seçmesi</strong> içindir. MEB'nin resmî turnuva başvurusu değildir.</div></aside>
       <div class="form-shell" id="form-shell"><div class="form-deco" aria-hidden="true"><span class="form-deco-blob"></span></div>
         <div class="form-top"><div><span class="form-overline"><span class="form-online-dot"></span> TEDKOD / BAŞVURU SİSTEMİ</span><h3 id="form-title">Hazır mısın?</h3></div><span id="step-indicator" class="step-indicator">1 / 3</span></div>
         <div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div>
@@ -132,7 +126,8 @@
         <div id="success" class="success hidden" role="status"><div class="success-symbol">✓</div><span class="section-kicker">BAŞVURUN ALINDI</span><h3>Fikrinin ilk adımını attın!</h3><p>Başvurun kaydedildi. Açık uçlu cevapların da değerlendirildikten sonra danışman öğretmen tarafından seçim süreci yürütülecek.</p><div class="ref-card">Başvuru kodun <strong id="reference"></strong></div><p class="quiet">Bu kodu not alabilirsin. Bu ekranı kapattığında başvuru bilgilerini tekrar görüntüleyemezsin.</p></div>
       </div>
     </div></section>
-    <section class="bottom-promo wrap premium-bottom"><div><span class="section-kicker">BİR SONRAKİ ADIM</span><h2>Her değişim bir soruyla başlar.<br><span>Belki de o soru senindir.</span></h2></div><p>Okul içi ön seçme başvuruları 30 Kasım Pazartesi günü saat 23.59’a kadar açık. Testi tek başına tamamlaman bekleniyor. Nihai takım seçimi, öğretmen değerlendirmesi ve gerektiğinde kısa görüşmeyle yapılacak.</p></section>
-  </main>
-  <footer class="footer"><div class="wrap footer-row"><div class="footer-brand"><img src="./assets/tedkod-symbol.png" alt="" width="42" height="52"><span><b>TEDKOD</b><small>TED Trabzon Koleji · Öğrenci ön seçme portalı</small></span></div><div><a href="https://okuldanogrendim.com.tr" target="_blank" rel="noopener noreferrer">Turnuva hakkında ↗</a><a href="./admin/">Öğretmen girişi</a></div></div><p class="footer-disclaimer wrap">Bağımsız okul içi ön seçme çalışmasıdır; MEB, Koç Holding veya Vehbi Koç Vakfının resmî başvuru sitesi değildir.</p></footer>
+
+<section class="v4-join"><div class="wrap v4-join-flex" data-v4-reveal="up"><div><span class="v4-kicker">ŞİMDİ SENİN SIRAN</span><h2>Fikrini bizimle <em>paylaş.</em></h2></div><a href="#basvuru" class="v4-cta v4-cta-dark">Ön teste geç <span aria-hidden="true">↗</span></a></div></section>
+</main>
+<footer class="footer v4-footer"><div class="wrap footer-row"><div class="footer-brand"><img src="./assets/tedkod-symbol.png" alt="" width="42" height="52"><span><b>TEDKOD</b><small>TED Trabzon Koleji · Teknoloji Takımı · 2026</small></span></div><div><a href="#hakkinda">Hakkımızda</a><a href="#proje-yolu">Proje rehberi</a><a href="./admin/">Öğretmen girişi</a></div></div><p class="footer-disclaimer wrap">Bu sayfa TEDKOD okul içi öğrenci ön seçmesi içindir. MEB yapay zekâ turnuvasının resmî başvuru sitesi değildir.</p></footer>
 </body></html>
