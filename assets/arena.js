@@ -1,3 +1,5 @@
+/* TEDKOD 6: in-page original puzzle games; validated wins are sent to Supabase. */
+document.addEventListener("DOMContentLoaded",function(){
 /* TEDKOD 5.0 Zekâ Arenası. Public data uses anonymized teacher-approved board. */
 (() => {
 'use strict';
@@ -13,20 +15,28 @@ const patternRounds=[
 const mazeWalls=new Set(['1,0','1,1','1,3','1,5','2,3','3,1','3,3','4,1','4,4']);
 const solutionMatrix=['●','◆','✦','✦','●','◆','◆','✦','●'];
 const fixedMatrix=new Set([0,1,4,5,6]);
-let client=null, currentGame=null, playName='',answers=[],round=0,mazePath='',mazeRow=0,mazeCol=0, matrixState=[],wonProof=null,gameStarted=false,saved=false;
+let client=null, currentGame=null, playName='',answers=[],round=0,mazePath='',mazeRow=0,mazeCol=0, matrixState=[],wonProof=null,gameStarted=false,saved=false,wrongCount=0;
 
 function connect(){const config=window.TEDKOD_CONFIG||{};const key=config.supabaseAnonKey; if(!window.supabase || !config.supabaseUrl || !key || key.includes('BURAYA')) return null;return window.supabase.createClient(config.supabaseUrl,key);}
 function stage(id){$('ar-enter').hidden=id!=='ar-enter';$('ar-play').hidden=id!=='ar-play';$('ar-won').hidden=id!=='ar-won';}
 function notify(t,error=false){const n=$('ar-feedback');n.textContent=t;n.style.color=error?'#ffb2c2':'#e8d2ff';}
 function updateProgress(n,total){$('ar-progress-text').textContent=`${n} / ${total} tamamlandı`;$('ar-progress-bar').style.width=`${Math.max(0,Math.min(100,n/total*100))}%`;}
-function chooseGame(id){if(!gameNames[id])return;currentGame=id;wonProof=null;answers=[];round=0;mazePath='';mazeRow=0;mazeCol=0;matrixState=[];gameStarted=false;playName='';saved=false;
-  $('ar-stage-wrap').hidden=false;stage('ar-enter');$('ar-stage-title').textContent=gameNames[id];$('ar-stage-desc').textContent=gameDescriptions[id];$('ar-stage-kicker').textContent=`ZEKA ARENASI / ${id.toUpperCase()}`;$('ar-play-badge').textContent='BAŞLAMADIN';$('ar-start-error').textContent='';$('ar-start-name').value='';$('ar-save-error').textContent='';$('ar-save-result').hidden=true;$('ar-win-form').hidden=false;
+function chooseGame(id){if(!gameNames[id])return;currentGame=id;wonProof=null;answers=[];round=0;wrongCount=0;mazePath='';mazeRow=0;mazeCol=0;matrixState=[];gameStarted=false;playName='';saved=false;
+  $('ar-stage-wrap').hidden=false;stage('ar-enter');$('ar-stage-title').textContent=gameNames[id];$('ar-stage-desc').textContent=gameDescriptions[id];$('ar-stage-kicker').textContent=`ZEKÂ OYUNLARI / ${id.toUpperCase()}`;$('ar-play-badge').textContent='BAŞLAMADIN';$('ar-start-error').textContent='';$('ar-start-name').value='';$('ar-save-error').textContent='';$('ar-save-result').hidden=true;$('ar-win-form').hidden=false;
   $('ar-stage-wrap').scrollIntoView({behavior:'smooth',block:'start'});
   setTimeout(()=>$('ar-start-name').focus(),320);
 }
 function exitGame(){currentGame=null;gameStarted=false;wonProof=null;$('ar-stage-wrap').hidden=true;$('ar-games').scrollIntoView({behavior:'smooth'});}
-function win(proof){wonProof=proof;stage('ar-won');$('ar-won-title').textContent=`Başardın, ${playName}!`;$('ar-winner-name').value=playName; $('ar-winner-grade').value='';$('ar-winner-section').value='';$('ar-consent').checked=false;$('ar-save-error').textContent='';$('ar-stage-wrap').scrollIntoView({behavior:'smooth',block:'start'});}
-function renderPattern(){updateProgress(round,4);const item=patternRounds[round];const root=$('ar-play-content');root.replaceChildren();let h=document.createElement('h3');h.textContent=`${round+1}. örüntüde eksik olanı bul.`;root.append(h);let row=document.createElement('div');row.className='ar-pattern-sequence';item.sequence.forEach(s=>{const el=document.createElement('span');el.textContent=s;row.append(el)});root.append(row);let choices=document.createElement('div');choices.className='ar-pattern-options';item.options.forEach((val,index)=>{const btn=document.createElement('button');btn.type='button';btn.textContent=val;btn.addEventListener('click',()=>{if(index!==item.correct){notify('Bir daha düşün. Sıradaki değişimi yakala.',true);return;}choices.querySelectorAll('button').forEach(b=>b.disabled=true);answers.push(index);round++;notify(`Doğru! ${item.tip}`);if(round===4){updateProgress(4,4);setTimeout(()=>win({answers}),400)}else setTimeout(renderPattern,480);});choices.append(btn)});root.append(choices);}
+function win(proof){wonProof=proof;stage('ar-won');launchConfetti();$('ar-won-title').textContent=`Başardın, ${playName}!`;$('ar-winner-name').value=playName; $('ar-winner-grade').value='';$('ar-winner-section').value='';$('ar-consent').checked=false;$('ar-save-error').textContent='';$('ar-stage-wrap').scrollIntoView({behavior:'smooth',block:'start'});}
+function launchConfetti(){
+  const root=$('ar-won');if(!root||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  root.querySelectorAll('.ar-confetti').forEach(el=>el.remove());
+  const holder=document.createElement('div');holder.className='ar-confetti';holder.setAttribute('aria-hidden','true');
+  const symbols=['✦','◆','●','✧','★'];
+  for(let i=0;i<24;i++){const dot=document.createElement('span');dot.textContent=symbols[i%symbols.length];dot.style.setProperty('--x',String(5+(i*17)%90)+'%');dot.style.setProperty('--delay',String((i%8)*.09)+'s');dot.style.setProperty('--end',String(-15+(i*13)%30)+'px');holder.append(dot);}
+  root.prepend(holder);setTimeout(()=>holder.remove(),2600);
+}
+function renderPattern(){wrongCount=0;updateProgress(round,4);const item=patternRounds[round];const root=$('ar-play-content');root.replaceChildren();let h=document.createElement('h3');h.textContent=`${round+1}. örüntüde eksik olanı bul.`;root.append(h);let row=document.createElement('div');row.className='ar-pattern-sequence';item.sequence.forEach(s=>{const el=document.createElement('span');el.textContent=s;row.append(el)});root.append(row);let choices=document.createElement('div');choices.className='ar-pattern-options';item.options.forEach((val,index)=>{const btn=document.createElement('button');btn.type='button';btn.textContent=val;btn.addEventListener('click',()=>{if(index!==item.correct){wrongCount++;notify(wrongCount>=2?'İpucu: '+item.tip:'Bir daha düşün. Sıradaki değişimi yakala.',true);return;}choices.querySelectorAll('button').forEach(b=>b.disabled=true);answers.push(index);round++;notify(`Doğru! ${item.tip}`);if(round===4){updateProgress(4,4);setTimeout(()=>win({answers}),400)}else setTimeout(renderPattern,480);});choices.append(btn)});root.append(choices);}
 function wall(r,c){return mazeWalls.has(`${r},${c}`)}
 function renderMaze(){updateProgress(mazeRow===5&&mazeCol===5?1:0,1);const root=$('ar-play-content');root.replaceChildren();const title=document.createElement('h3');title.textContent='Robotu yıldızlı hedefe ulaştır.';root.append(title);let layout=document.createElement('div');layout.className='ar-maze-layout';let grid=document.createElement('div');grid.className='ar-maze-grid';grid.setAttribute('role','img');grid.setAttribute('aria-label',`6 çarpı 6 oyun tahtası, robot ${mazeRow+1}. satır ${mazeCol+1}. sütunda, hedef 6. satır 6. sütunda.`);
  for(let r=0;r<6;r++)for(let c=0;c<6;c++){const cell=document.createElement('div');cell.className='ar-maze-cell';if(wall(r,c))cell.classList.add('is-wall');if(r===5&&c===5){cell.classList.add('is-goal');cell.textContent='★'}if(r===mazeRow&&c===mazeCol){cell.classList.add('is-robot');cell.textContent='🤖'}grid.append(cell)}
@@ -54,3 +64,5 @@ async function loadBoard(){const root=$('ar-board');root.replaceChildren();let p
 function setActions(){document.querySelectorAll('[data-game]').forEach(el=>el.addEventListener('click',()=>chooseGame(el.dataset.game)));$('ar-exit').addEventListener('click',exitGame);$('ar-start').addEventListener('click',begin);$('ar-start-name').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();begin()}});$('ar-win-form').addEventListener('submit',submitWin);$('ar-refresh').addEventListener('click',loadBoard);$('ar-play-again').addEventListener('click',exitGame);document.addEventListener('keydown',(e)=>{if(currentGame==='maze'&&gameStarted&&!$('ar-play').hidden&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){const map={ArrowUp:'U',ArrowDown:'D',ArrowLeft:'L',ArrowRight:'R'};if(map[e.key]){e.preventDefault();moveMaze(map[e.key])}}});}
 client=connect();setActions();loadBoard();
 })();
+
+});

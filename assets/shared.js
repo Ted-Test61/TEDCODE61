@@ -28,7 +28,9 @@
     if(/VALIDATION_ERROR/i.test(s)) return 'Bazı bilgiler doğrulanamadı. Lütfen alanları kontrol et.';
     if(/permission denied|42501|not authorized|AUTH_REQUIRED/i.test(s)) return 'Bu işlem için yetkiniz bulunmuyor.';
     if(/Failed to fetch|NetworkError|fetch failed/i.test(s)) return 'Bağlantı kurulamadı. Ağ bağlantısını kontrol edin.';
-    return s;
+    if(/Invalid login credentials/i.test(s)) return 'E-posta adresi veya parola hatalı.';
+    if(/Could not find the function|PGRST202/i.test(s)) return 'Sunucu fonksiyonu bulunamadı. Veritabanı kurulumunu öğretmeninizle kontrol edin.';
+    return 'İşlem tamamlanamadı. Lütfen tekrar dene veya danışman öğretmene haber ver.';
   }
   window.TEDKOD = Object.freeze({configured,client,questions,themes,strengths,statuses,message,config:c});
 })();
