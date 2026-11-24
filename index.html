@@ -10,13 +10,56 @@
   <link rel="stylesheet" href="./assets/styles.css">
   <link rel="stylesheet" href="./assets/premium.css?v=3.0">
   <link rel="stylesheet" href="./assets/tedkod-v4.css?v=4.0.1">
+  
   <script src="./config.js" defer></script>
-  <script src="./assets/site-settings.js?v=4.0.1" defer></script>
+  <script src="./assets/site-settings.js?v=3.0" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="./assets/shared.js" defer></script>
   <script src="./assets/app.js" defer></script>
   <script src="./assets/premium.js" defer></script>
   <script src="./assets/tedkod-v4.js?v=4.0.1" defer></script>
+<style id="tedkod-game-menu-styles">
+/* TEDKOD 5.0 / Zekâ Arenası: yalnızca görsel stiller. */
+:root{--ar-navy:#080e20;--ar-blue:#192a52;--ar-white:#f7f8ff;--ar-red:#eb294d;--ar-purple:#a389ff;--ar-ink:#101d35;--ar-muted:#66758d;--ar-border:#e6e9f3}
+.ar-home,.ar-app,.ar-admin{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.ar-home{background:#090d20;color:#fff;position:relative;overflow:hidden;padding:110px 0;isolation:isolate}
+.ar-home::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 79% 40%,#293873 0,transparent 36%),radial-gradient(circle at 18% 100%,#291d48 0,transparent 28%);z-index:-1}
+.ar-home-inner{display:grid;grid-template-columns:1fr .9fr;align-items:center;gap:60px}
+.ar-home-kicker{font-size:13px;letter-spacing:.17em;font-weight:800;color:#c4cde3;display:flex;align-items:center;gap:9px}
+.ar-live-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#fa4165;box-shadow:0 0 0 5px #fa41651e,0 0 24px #fa4165}
+.ar-home h2{font-size:clamp(52px,5.6vw,89px);line-height:1.03;letter-spacing:-.055em;margin:25px 0 24px;font-weight:800}
+.ar-home h2 em{font-style:normal;color:#ff5276}
+.ar-home-copy>p{font-size:19px;max-width:490px;color:#c9d1e0;line-height:1.7}
+.ar-home-button{display:inline-flex;align-items:center;gap:44px;padding:18px 24px;margin:25px 0 20px;background:#ed3155;color:#fff!important;font-size:16px;font-weight:750;border-radius:14px;box-shadow:0 15px 40px #dd124f43;transition:transform .2s,box-shadow .2s}
+.ar-home-button:hover{transform:translateY(-4px);box-shadow:0 21px 50px #ed315569}
+.ar-home-copy>small{display:block;font-size:13px;color:#9caac4}
+.ar-home-art{min-height:500px;position:relative;display:grid;place-items:center;perspective:900px}
+.ar-home-grid{width:360px;height:360px;position:absolute;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;transform:rotateX(50deg) rotateZ(-28deg);filter:drop-shadow(0 50px 45px #0009)}
+.ar-home-grid i{border-radius:20px;background:linear-gradient(130deg,#263b75,#0c1737);border:1px solid #ffffff38;box-shadow:inset 5px 6px 30px #cad4ff1d}
+.ar-home-grid i:nth-child(1),.ar-home-grid i:nth-child(6){background:linear-gradient(150deg,#ff7088,#dd1d57)}
+.ar-home-grid i:nth-child(5){background:linear-gradient(150deg,#b2a7ff,#5d65cb)}
+.ar-home-orbit{position:absolute;right:14%;top:12%;font-size:62px;color:#ffb6c5;filter:drop-shadow(0 0 25px #ff2854);animation:arFloat 5s ease-in-out infinite}
+.ar-home-cube{width:165px;height:160px;display:grid;place-items:center;font-size:94px;font-weight:800;position:relative;z-index:2;transform:translateY(-5px) rotate(-10deg);color:#fff;text-shadow:0 0 24px #b6bdff}
+.ar-home-cube span{position:absolute;bottom:4px;font-size:12px;letter-spacing:.2em;color:#ebebff}
+.ar-home-chip{position:absolute;z-index:3;border:1px solid #ffffff58;background:#151f47bf;backdrop-filter:blur(18px);border-radius:16px;padding:14px 20px;font-size:15px;font-weight:800;box-shadow:0 17px 40px #05081666;animation:arFloat 7s ease-in-out infinite}
+.ar-chip-a{top:16%;left:1%}.ar-chip-b{right:-1%;bottom:13%;animation-delay:-2s}
+@keyframes arFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* TEDKOD 5.1: clean, prominent game entry without changing application logic. */
+.tedkod-v4 .main-nav>.arena-nav-link{display:inline-flex;align-items:center;gap:7px;border:1px solid #f5c9d1;background:#fff4f6;color:#a81635!important;padding:12px 16px;border-radius:999px;font-weight:760!important;white-space:nowrap;box-shadow:0 7px 16px #a21c3220;transition:background .2s,transform .2s}
+.tedkod-v4 .main-nav>.arena-nav-link:hover{background:#ffe8ed;transform:translateY(-2px)}
+.tedkod-v4 .main-nav{gap:14px}
+.ar-home-copy h2,.ar-home-copy p,.ar-home-copy a{position:relative;z-index:2}
+.ar-home-copy h2 em{font-style:normal}
+.tedkod-game-float{position:fixed;bottom:22px;right:22px;z-index:110;display:flex;align-items:center;gap:11px;background:#ee2f52;color:white!important;font-weight:780;font-size:15px;letter-spacing:0;padding:15px 19px;border:1px solid #ffffff33;border-radius:999px;box-shadow:0 18px 50px #7e18396e;text-decoration:none;transition:transform .18s,box-shadow .18s;isolation:isolate}
+.tedkod-game-float:hover{transform:translateY(-3px);box-shadow:0 21px 55px #7e183990}
+.tedkod-game-float .pulse-game{font-size:21px;animation:gameBop 3.1s ease-in-out infinite}
+@keyframes gameBop{0%,85%,100%{transform:rotate(0)}88%{transform:rotate(-14deg)}92%{transform:rotate(13deg)}96%{transform:rotate(-8deg)}}
+@media(max-width:1080px){.tedkod-v4 .main-nav>.arena-nav-link{display:none!important}}
+@media(max-width:750px){.tedkod-game-float{bottom:max(14px,env(safe-area-inset-bottom));right:14px;left:14px;justify-content:center;border-radius:15px;padding:15px;font-size:16px}.ar-home-inner{grid-template-columns:1fr}.ar-home-art{min-height:250px;max-width:100%;width:100%}.ar-home-grid{width:230px;height:230px;gap:10px}.ar-home-cube{font-size:60px}.ar-home-copy>p{font-size:16px}.ar-home h2{font-size:clamp(38px,10vw,58px);letter-spacing:-.035em}.ar-home{padding:70px 0 60px}.ar-home-chip{font-size:12px;padding:9px 12px}.ar-home-orbit{font-size:35px}.v4-footer{padding-bottom:80px}}
+@media(prefers-reduced-motion:reduce){.tedkod-game-float,.tedkod-game-float .pulse-game{animation:none!important;transition:none!important}}
+
+</style>
 </head>
 <body class="tedkod-v4">
   <div id="reading-progress" aria-hidden="true"></div>
@@ -24,7 +67,7 @@
   <div class="site-nav-wrap"><header class="header wrap premium-header">
     <a class="brand" href="./" aria-label="TEDKOD ana sayfa"><span class="logo-wrap"><img src="./assets/tedkod-symbol.png" alt="" width="38" height="48"></span><span class="brand-type"><strong>TED<span>KOD</span></strong><small>TED TRABZON KOLEJİ · TEKNOLOJİ TAKIMI</small></span></a>
     <nav class="main-nav" aria-label="Ana menü">
-      <a href="#hakkinda">TEDKOD</a><a href="#proje-yolu">Proje rehberi</a><a href="#fikir-atolyesi">Fikir laboratuvarı</a><a class="teacher-nav" href="./admin/">Öğretmen</a><a class="nav-cta" href="#basvuru">Başvur <span aria-hidden="true">↗</span></a>
+      <a href="#hakkinda">TEDKOD</a><a href="#proje-yolu">Proje rehberi</a><a class="arena-nav-link" href="./zeka-oyunlari.html">🎮 Zekâ Oyunları</a><a class="teacher-nav" href="./admin/">Öğretmen</a><a class="nav-cta" href="#basvuru">Başvur <span aria-hidden="true">↗</span></a>
     </nav>
   </header></div>
   <main>
@@ -35,7 +78,7 @@
       <p class="v4-eyebrow v4-eyebrow-light"><span class="v4-status-dot"></span> 2026–2027 · ÖĞRENCİ SEÇMELERİ</p>
       <h1 id="v4-hero-title">Düşün.<br><span>Keşfet.</span><br>Üret<span class="v4-red">.</span></h1>
       <p class="v4-hero-desc">Fikrin varsa bir başlangıcın var. TEDKOD'la onu bir projeye dönüştür.</p>
-      <div class="v4-hero-ctas"><a class="v4-cta v4-cta-primary" href="#basvuru">Takıma başvur <span aria-hidden="true">↗</span></a><a class="v4-cta v4-cta-ghost" href="#hakkinda">TEDKOD'u tanı <span aria-hidden="true">↓</span></a></div>
+      <div class="v4-hero-ctas"><a class="v4-cta v4-cta-primary" href="#basvuru">Takıma başvur <span aria-hidden="true">↗</span></a><a class="v4-cta v4-cta-ghost" href="./zeka-oyunlari.html">🎮 Zekâ oyunları <span aria-hidden="true">↗</span></a></div>
       <div class="v4-hero-notes"><span>5–8. sınıflar</span><i></i><span>8 soruluk ön test</span><i></i><span>Yaklaşık 15 dk</span></div>
     </div>
     <div class="v4-device-scene" data-v4-reveal="scale" aria-label="TEDKOD meşale simgesini taşıyan üç boyutlu teknoloji sahnesi">
@@ -54,7 +97,7 @@
 <section class="v4-about" id="hakkinda" aria-labelledby="v4-about-title">
   <div class="wrap v4-about-layout">
     <div class="v4-about-copy" data-v4-reveal="up">
-      <p class="v4-kicker">BİZ KİMİZ? · 2026'DA KURULDU</p>
+      <p class="v4-kicker">BİZ KİMİZ? · 2026'DAN BUGÜNE</p>
       <h2 id="v4-about-title">Bir takım.<br><em>Sayısız fikir.</em></h2>
       <p><strong>TEDKOD</strong>, 2026 yılında TED Trabzon Koleji Bilişim Teknolojileri ve Yazılım öğretmenleri tarafından kurulan teknoloji ve proje geliştirme takımıdır.</p>
       <p>Yaş ve sınıf düzeylerine uygun <strong>bölgesel, ulusal ve uluslararası yarışmalara</strong> hazırlanmak; yapay zekâ, yazılım, tasarım ve problem çözme becerilerini geliştirmek isteyen öğrencileri buluşturur.</p>
@@ -100,6 +143,25 @@
    <div class="v4-lab-console" data-v4-reveal="right"><div class="v4-console-top"><span><i></i><i></i><i></i></span><strong>FİKİR LAB / 01</strong><span id="v4-prompt-count">01 / 03</span></div><div class="v4-console-body"><p id="v4-prompt-theme">EĞİTİM VE ÖĞRENME</p><div class="v4-console-pulse" aria-hidden="true"><span>?</span><i></i></div><h3 id="v4-prompt-question" aria-live="polite">Bir konuyu öğrenirken en çok nerede zorlanıyoruz?</h3><div class="v4-console-hint"><b>İLK ADIM</b><p id="v4-prompt-hint">Sınıf arkadaşlarının deneyimlerini isim almadan gözlemle.</p></div></div><button class="v4-next-question" id="v4-next-question" type="button">Başka bir soru keşfet <span aria-hidden="true">↻</span></button></div>
 </div></section>
 
+<section class="ar-home" id="zeka-arenasi" aria-labelledby="ar-home-title">
+  <div class="wrap ar-home-inner">
+    <div class="ar-home-copy" data-v4-reveal="left">
+      <span class="ar-home-kicker"><span class="ar-live-dot"></span> TEDKOD / YENİ DENEYİM</span>
+      <h2 id="ar-home-title">Merakını<br><em>oyuna dönüştür.</em></h2>
+      <p>Üç mini zekâ oyunu. Üç farklı beceri. Örüntüleri yakala, robotu hedefe götür, mantık matrisini çöz.</p>
+      <a class="ar-home-button" href="./zeka-oyunlari.html">Zekâ oyunlarını oyna <span aria-hidden="true">↗</span></a>
+      <small>Oyunlar eğlencelik; TEDKOD seçme sınavından bağımsızdır.</small>
+    </div>
+    <div class="ar-home-art" data-v4-reveal="right" aria-hidden="true">
+      <div class="ar-home-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ar-home-orbit">◆</div>
+      <div class="ar-home-cube">✦<span>01 / 03</span></div>
+      <div class="ar-home-chip ar-chip-a">↗ AKIL</div>
+      <div class="ar-home-chip ar-chip-b">{ } MANTIK</div>
+    </div>
+  </div>
+</section>
+
 <section class="v4-timeline"><div class="wrap v4-timeline-wrap"><div class="v4-timeline-title" data-v4-reveal="left"><p class="v4-kicker">TURNUVA TAKVİMİ</p><h2>Seçmelerden <span>sonra.</span></h2></div><div class="v4-timeline-cards" data-v4-reveal="right"><div><small>31 ARALIK 2026</small><strong>Problemi Keşfet</strong></div><div><small>15 ŞUBAT 2027</small><strong>Çözümü Tasarla</strong></div><div><small>26 MART 2027</small><strong>Prototip ve Başvuru</strong></div></div></div></section>
     <section id="basvuru" class="application-section premium-application"><div class="wrap apply-layout"><aside class="apply-aside"><div class="side-badge"><span class="red-dot"></span> ÖĞRENCİ BAŞVURUSU</div><h2>Sıra senin.<br><span>Fikrini paylaş.</span></h2><p>Bilgini değil, düşünme biçimini tanımak istiyoruz. 6 kısa soru ve 2 fikir sorusunu cevapla.</p><div class="side-rule"></div><div class="side-list"><div><span>01</span> Kendini tanıt</div><div><span>02</span> Durumları değerlendir</div><div><span>03</span> Kendi çözümünü öner</div></div><div class="aside-foot">Önemli: Bu form <strong>okul içi öğrenci ön seçmesi</strong> içindir. MEB'nin resmî turnuva başvurusu değildir.</div></aside>
       <div class="form-shell" id="form-shell"><div class="form-deco" aria-hidden="true"><span class="form-deco-blob"></span></div>
@@ -129,5 +191,6 @@
 
 <section class="v4-join"><div class="wrap v4-join-flex" data-v4-reveal="up"><div><span class="v4-kicker">ŞİMDİ SENİN SIRAN</span><h2>Fikrini bizimle <em>paylaş.</em></h2></div><a href="#basvuru" class="v4-cta v4-cta-dark">Ön teste geç <span aria-hidden="true">↗</span></a></div></section>
 </main>
-<footer class="footer v4-footer"><div class="wrap footer-row"><div class="footer-brand"><img src="./assets/tedkod-symbol.png" alt="" width="42" height="52"><span><b>TEDKOD</b><small>TED Trabzon Koleji · Teknoloji Takımı · 2026</small></span></div><div><a href="#hakkinda">Hakkımızda</a><a href="#proje-yolu">Proje rehberi</a><a href="./admin/">Öğretmen girişi</a></div></div><p class="footer-disclaimer wrap">Bu sayfa TEDKOD okul içi öğrenci ön seçmesi içindir. MEB yapay zekâ turnuvasının resmî başvuru sitesi değildir.</p></footer>
+<footer class="footer v4-footer"><div class="wrap footer-row"><div class="footer-brand"><img src="./assets/tedkod-symbol.png" alt="" width="42" height="52"><span><b>TEDKOD</b><small>TED Trabzon Koleji · Teknoloji Takımı · 2026</small></span></div><div><a href="#hakkinda">Hakkımızda</a><a href="#proje-yolu">Proje rehberi</a><a href="./zeka-oyunlari.html">Zekâ Oyunları</a><a href="./oyun-kazananlari.html">Oyun kazananları (öğretmen)</a><a href="./admin/">Öğretmen girişi</a></div></div><p class="footer-disclaimer wrap">Bu sayfa TEDKOD okul içi öğrenci ön seçmesi içindir. MEB yapay zekâ turnuvasının resmî başvuru sitesi değildir.</p></footer>
+<a class="tedkod-game-float" href="./zeka-oyunlari.html" aria-label="TEDKOD Zekâ Oyunları sayfasını aç"><span class="pulse-game" aria-hidden="true">🎮</span> Zekâ Oyunları <span aria-hidden="true">↗</span></a>
 </body></html>
